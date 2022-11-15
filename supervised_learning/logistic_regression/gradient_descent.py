@@ -109,10 +109,7 @@ def compute_gradient_reg(X, y, w, b, lambda_=1):
 
     dj_db, dj_dw = compute_gradient(X, y, w, b)
 
-    ### START CODE HERE ###
     for j in range(n):
         dj_dw[j] = dj_dw[j] + (lambda_ / m) * w[j]
-
-    ### END CODE HERE ###
 
     return dj_db, dj_dw
