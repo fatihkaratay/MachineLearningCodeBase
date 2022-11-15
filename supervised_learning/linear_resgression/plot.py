@@ -1,5 +1,5 @@
 """
-plotting the linear fit
+Some plotting functions that are used for the linear regression
 """
 
 import matplotlib.pyplot as plt
