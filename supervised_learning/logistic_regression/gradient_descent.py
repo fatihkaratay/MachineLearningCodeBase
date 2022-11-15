@@ -87,3 +87,32 @@ def gradient_descent(X, y, w_in, b_in, cost_function, gradient_function, alpha, 
             print(f"Iteration {i:4}: Cost {float(J_history[-1]):8.2f}   ")
 
     return w_in, b_in, J_history, w_history  # return w and J,w history for graphing
+
+
+def compute_gradient_reg(X, y, w, b, lambda_=1):
+    """
+    Gradient descent for regularized logistic regression
+    Computes the gradient for linear regression
+
+    Args:
+      X : (ndarray Shape (m,n))   variable such as house size
+      y : (ndarray Shape (m,))    actual value
+      w : (ndarray Shape (n,))    values of parameters of the model
+      b : (scalar)                value of parameter of the model
+      lambda_ : (scalar,float)    regularization constant
+    Returns
+      dj_db: (scalar)             The gradient of the cost w.r.t. the parameter b.
+      dj_dw: (ndarray Shape (n,)) The gradient of the cost w.r.t. the parameters w.
+
+    """
+    m, n = X.shape
+
+    dj_db, dj_dw = compute_gradient(X, y, w, b)
+
+    ### START CODE HERE ###
+    for j in range(n):
+        dj_dw[j] = dj_dw[j] + (lambda_ / m) * w[j]
+
+    ### END CODE HERE ###
+
+    return dj_db, dj_dw
