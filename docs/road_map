@@ -1,0 +1,4 @@
+1. Import the libraries.
+2. Split your data set into the train and test and print their dimensions.
+3. Plot the train and test datasets.
+4. Compute the error evaluation. If linear regression: average of mean squared error
