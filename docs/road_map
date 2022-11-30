@@ -2,3 +2,7 @@
 2. Split your data set into the train and test and print their dimensions.
 3. Plot the train and test datasets.
 4. Compute the error evaluation. If linear regression: average of mean squared error
+5. Run test cases against the error function.
+6. Create and fit the model using linear regression in sklearn library
+7. Compute the error on training data set
+8. Compute the error on test data set.
