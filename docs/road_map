@@ -6,3 +6,5 @@
 6. Create and fit the model using linear regression in sklearn library
 7. Compute the error on training data set
 8. Compute the error on test data set.
+9. Compare those errors, print them to see the actual values. ,You can use 0.2f to reduce the decimals.
+10. Plot predictions over data range
