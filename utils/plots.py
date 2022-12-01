@@ -109,3 +109,35 @@ def plt_tune_regularization(X_train, y_train, X_cv, y_cv, x, y_pred, err_train, 
     plt.tight_layout()
     plt.show()
 
+
+def plt_tune_m(X_train, y_train, X_cv, y_cv, x, y_pred, err_train, err_cv, m_range, degree):
+    fig, ax = plt.subplots(1, 2, figsize=(8, 4))
+    fig.canvas.toolbar_visible = False
+    fig.canvas.header_visible = False
+    fig.canvas.footer_visible = False
+
+    ax[0].set_title("predictions vs data", fontsize=12)
+    ax[0].set_xlabel("x")
+    ax[0].set_ylabel("y")
+
+    ax[0].scatter(X_train, y_train, color="red", s=3, label="train", alpha=0.4)
+    ax[0].scatter(X_cv, y_cv, color=dlc["dlorange"], s=3, label="cv", alpha=0.4)
+    ax[0].set_xlim(ax[0].get_xlim())
+    ax[0].set_ylim(ax[0].get_ylim())
+    for i in range(0, len(m_range), 3):
+        ax[0].plot(x, y_pred[:, i], lw=1, label=f"$m =${m_range[i]}")
+    ax[0].legend(loc='upper left')
+    ax[0].text(0.05, 0.5, f"degree = {degree}", fontsize=10, ha='left', transform=ax[0].transAxes, color=dlc["dlblue"])
+
+    ax[1].set_title("error vs number of examples", fontsize=12)
+    ax[1].plot(m_range, err_train[:], label="train error", color=dlc["dlblue"])
+    ax[1].plot(m_range, err_cv[:], label="cv error", color=dlc["dlorange"])
+    ax[1].set_xlabel("Number of Examples (m)")
+    ax[1].set_ylabel("error")
+    fig.suptitle("Tuning number of examples", fontsize=12)
+    ax[1].text(0.05, 0.5, "High\nVariance", fontsize=12, ha='left', transform=ax[1].transAxes, color=dlc["dlblue"])
+    ax[1].text(0.95, 0.5, "Good \nGeneralization", fontsize=12, ha='right', transform=ax[1].transAxes,
+               color=dlc["dlblue"])
+    ax[1].legend()
+    plt.tight_layout()
+    plt.show()
