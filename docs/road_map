@@ -8,3 +8,6 @@
 8. Compute the error on test data set.
 9. Compare those errors, print them to see the actual values. ,You can use 0.2f to reduce the decimals.
 10. Plot predictions over data range
+11. Find the optimal degree by selecting a max degree and for each degree, construct the error functions as arrays.
+12. Compute the optimal degree by getting argmin of error_cv set. You can use numpy to do this.
+13. Plot the result. You can use "plt_optimal_degree" plotting function.
