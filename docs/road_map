@@ -13,3 +13,4 @@
 13. Plot the result. You can use "plt_optimal_degree" plotting function.
 14. Perform fine regularization. Idea is regularization the parameter lambda.
 15. Plot the result.
+16. If model goes from high variance to high bias, collecting extra data can improve the performance.
