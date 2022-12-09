@@ -31,3 +31,13 @@ def load_precalc_params_small():
     num_users, _ = W.shape
 
     return X, W, b, num_movies, num_features, num_users
+
+
+def load_ratings_small():
+    file = open('./data/small_movies_Y.csv', 'rb')
+    Y = loadtxt(file, delimiter=',')
+
+    file = open('./data/small_movies_R.csv', 'rb')
+    R = loadtxt(file, delimiter=',')
+
+    return Y, R
