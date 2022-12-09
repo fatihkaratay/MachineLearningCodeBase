@@ -41,3 +41,14 @@ def load_ratings_small():
     R = loadtxt(file, delimiter=',')
 
     return Y, R
+
+
+def load_movie_list_pd():
+    """
+    Returns dataframe with index of movies in the order they are in
+    the Y matrix.
+    """
+    df = pd.read_csv('./data/small_movie_list.csv', header=0, index_col=0, delimiter=',', quotechar='"')
+    mlist = df['title'].to_list()
+    return mlist, df
+
