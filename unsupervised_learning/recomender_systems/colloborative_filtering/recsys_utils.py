@@ -15,3 +15,19 @@ def normalize_ratings(Y, R):
     Ynorm = Y - np.multiply(Ymean, R)
     return (Ynorm, Ymean)
 
+
+def load_precalc_params_small():
+    file = open('./data/small_movies_X.csv', 'rb')
+    X = loadtxt(file, delimiter=',')
+
+    file = open('./data/small_movies_W.csv', 'rb')
+    W = loadtxt(file, delimiter=',')
+
+    file = open('./data/small_movies_b.csv', 'rb')
+    b = loadtxt(file, delimiter=',')
+    b = b.reshape(1, -1)
+
+    num_movies, num_features = X.shape
+    num_users, _ = W.shape
+
+    return X, W, b, num_movies, num_features, num_users
