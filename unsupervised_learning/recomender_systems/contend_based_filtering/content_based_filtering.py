@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 
 item_train, user_train, y_train, item_features, user_features, item_vecs, movie_dict, user_to_genre = load_data()
 
@@ -37,3 +38,17 @@ output = tf.keras.layers.Dot(axes=1)([vu, vm])
 model = tf.keras.Model([input_user, input_item], output)
 
 model.summary()
+
+
+def sq_dist(a, b):
+    """
+    Returns the squared distance between two vectors
+    Args:
+      a (ndarray (n,)): vector with n features
+      b (ndarray (n,)): vector with n features
+    Returns:
+      d (float) : distance
+    """
+    d = np.square(a - b).sum()
+
+    return d
